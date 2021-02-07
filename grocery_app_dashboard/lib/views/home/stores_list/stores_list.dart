@@ -21,6 +21,7 @@ class StoresList extends StatelessWidget {
             },
             shrinkWrap: true,
             itemCount: snapshot.data.length,
+            physics: NeverScrollableScrollPhysics(),
           );
         }
       },

@@ -5,15 +5,18 @@ import 'package:grocery_app/shared/loading.dart';
 import 'package:grocery_app/views/home/stores_list/store_tile.dart';
 
 class StoresList extends StatelessWidget {
+  final String currentLocation;
+  StoresList({this.currentLocation});
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<Store>>(
-      stream: DatabaseService().getStoresList(),
+      stream: DatabaseService().getStoresList(currentLocation),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return Loading();
         } else {
           return ListView.builder(
+            scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
               return StoreTile(
                 store: snapshot.data[index],
@@ -21,6 +24,7 @@ class StoresList extends StatelessWidget {
             },
             shrinkWrap: true,
             itemCount: snapshot.data.length,
+            physics: NeverScrollableScrollPhysics(),
           );
         }
       },

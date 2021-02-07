@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:grocery_app/views/home/homePageView.dart';
 import 'package:grocery_app/views/wrapper.dart';
 import 'package:provider/provider.dart';
 import 'package:grocery_app/services/auth.dart';
@@ -34,18 +35,33 @@ class MyApp extends StatelessWidget {
                   accentColor: Color(0xFF1C8244)),
             ),
           );
-        } else {
+        }
+        if (snapshot.data is User && snapshot.data != null) {
           return StreamProvider<CustomUserModel>.value(
             value: AuthService().user,
             child: MaterialApp(
-              home: Wrapper(),
+              home: HomePageView(),
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
-                  primaryColor: Color(0xFF29C17E),
-                  accentColor: Color(0xFF1C8244)),
+                primaryColor: Color(0xFF29C17E),
+                accentColor: Color(0xFF1C8244),
+                // canvasColor: Color(0xFF29C17E)
+              ),
             ),
           );
         }
+        return StreamProvider<CustomUserModel>.value(
+          value: AuthService().user,
+          child: MaterialApp(
+            home: Wrapper(),
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+                primaryColor: Color(0xFF29C17E),
+                accentColor: Color(0xFF1C8244)),
+          ),
+        );
+        // if (snapshot.connectionState == ConnectionState.waiting) {
+        // } else {}
       },
     );
   }

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/models/product.dart';
+import 'package:grocery_app/models/store.dart';
+import 'package:grocery_app/models/user.dart';
+import 'package:grocery_app/services/database.dart';
+import 'package:provider/provider.dart';
 
 class ProductTile extends StatefulWidget {
   final Product product;
+  final Store store;
 
-  const ProductTile({Key key, this.product}) : super(key: key);
+  const ProductTile({this.product, this.store});
   @override
   _ProductTileState createState() => _ProductTileState();
 }
@@ -12,6 +17,7 @@ class ProductTile extends StatefulWidget {
 class _ProductTileState extends State<ProductTile> {
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<CustomUserModel>(context);
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
       decoration: BoxDecoration(
@@ -29,8 +35,8 @@ class _ProductTileState extends State<ProductTile> {
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0)),
               child: Image(
-                image: AssetImage('assets/img.jpg'),
-                fit: BoxFit.cover,
+                image: AssetImage('assets/${widget.product.image}'),
+                fit: BoxFit.fitHeight,
                 height: 150.0,
               ),
             ),
@@ -106,11 +112,15 @@ class _ProductTileState extends State<ProductTile> {
               children: [
                 Expanded(
                   child: InkWell(
-                    onTap: () {},
-                    // => Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (context) => CartProductDetailsView(
-                    //           product: widget.cartItem,
-                    //         ))),
+                    onTap: () {
+                      DatabaseService(uid: user.uid).orderItem(
+                          widget.product.uid,
+                          widget.product.name,
+                          widget.product.price,
+                          widget.product.image,
+                          widget.store);
+                      Navigator.pop(context);
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -134,8 +144,12 @@ class _ProductTileState extends State<ProductTile> {
                 Expanded(
                   child: InkWell(
                     onTap: () {
-                      // DatabaseService(uid: user.uid)
-                      //     .removeItemFromCart(widget.cartItem.cartItemId);
+                      DatabaseService(uid: user.uid).addItemToCart(
+                          widget.product.uid,
+                          widget.product.name,
+                          widget.product.price,
+                          widget.store);
+                      Navigator.pop(context);
                     },
                     child: Container(
                       decoration: BoxDecoration(

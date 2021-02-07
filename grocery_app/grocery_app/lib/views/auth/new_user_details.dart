@@ -14,7 +14,7 @@ class _NewUserDetailsState extends State<NewUserDetails> {
   final _formKey = GlobalKey<FormState>();
 
   String name = '';
-  String address = '';
+  String location = '';
 
   @override
   Widget build(BuildContext context) {
@@ -87,12 +87,12 @@ class _NewUserDetailsState extends State<NewUserDetails> {
                             ]),
                             child: TextFormField(
                               validator: (val) =>
-                                  val.isEmpty ? 'Please Enter Address' : null,
+                                  val.isEmpty ? 'Please Enter Location' : null,
                               onChanged: (val) {
-                                setState(() => address = val);
+                                setState(() => location = val);
                               },
                               decoration: textInputDecoration.copyWith(
-                                  hintText: 'Address'),
+                                  hintText: 'Location'),
                               style: TextStyle(
                                 color: Colors.white,
                               ),
@@ -122,7 +122,7 @@ class _NewUserDetailsState extends State<NewUserDetails> {
                       onTap: () {
                         if (_formKey.currentState.validate()) {
                           DatabaseService(uid: user.uid)
-                              .updateUserData(name, address, 'Location');
+                              .updateUserData(name, location);
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                   builder: (context) => HomePageView()));

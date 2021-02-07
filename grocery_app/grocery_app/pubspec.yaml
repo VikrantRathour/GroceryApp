@@ -29,6 +29,8 @@ dependencies:
   cloud_firestore: ^0.16.0
   provider: ^4.3.2+4
   flutter_spinkit: "^4.1.2"
+  flutter_typeahead: ^2.0.0
+  shared_preferences: ^0.5.12+4
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -56,6 +58,46 @@ flutter:
     - assets/logo.jpg
     - assets/map.jpg
     - assets/avatar.png
+    - assets/24Seven.jpeg
+    - assets/EasyDayClub.jpeg
+    - assets/FineChoice.jpeg
+    - assets/GroceryGreen.jpeg
+    - assets/HealBasket.jpeg
+    - assets/HealthStore.jpeg
+    - assets/HyperMart.jpeg
+    - assets/JaiswalGeneralStore.jpeg
+    - assets/MadBananas.jpeg
+    - assets/OrganicIndia.jpeg
+    - assets/RashanTime.jpeg
+    - assets/SastaBazar.jpeg
+    - assets/BakeryAndDairyProducts.jpg
+    - assets/Beverages.jpg
+    - assets/CleaningAndHousehold.jpg
+    - assets/CookingAssentials.jpg
+    - assets/FruitsAndVegetables.jpg
+    - assets/PackageFood.jpg
+    - assets/PersonalCare.jpg
+    - assets/products/apple.png
+    - assets/products/bingo.jpg
+    - assets/products/butter.jpg
+    - assets/products/cheese.jpg
+    - assets/products/cocacola.jpg
+    - assets/products/grapes.jpg
+    - assets/products/handMirror.jpg
+    - assets/products/harpic.jpg
+    - assets/products/kadai.jpg
+    - assets/products/kurkure.jpg
+    - assets/products/lays.jpg
+    - assets/products/limca.jpg
+    - assets/products/mango.jpg
+    - assets/products/milk.jpg
+    - assets/products/onion.png
+    - assets/products/pan.jpg
+    - assets/products/pepsi.jpg
+    - assets/products/perfume.jpg
+    - assets/products/potato-getty.jpg
+    - assets/products/vimLiquid.png
+    - assets/products/watermelon.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

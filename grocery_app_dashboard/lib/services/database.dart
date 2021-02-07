@@ -10,12 +10,14 @@ class DatabaseService {
   final CollectionReference categoriesCollection =
       FirebaseFirestore.instance.collection('categories');
 
-  Future addNewStore(
-      String storeName, String location, int distanceFromUser) async {
+  Future addNewStore(String storeName, String location, int distanceFromUser,
+      String category) async {
     await storesCollection.add({
       'name': storeName,
       'location': location,
-      'distanceFromUser': distanceFromUser
+      'distanceFromUser': distanceFromUser,
+      'category': category,
+      'image': 'img.jpg'
     });
   }
 
@@ -26,11 +28,11 @@ class DatabaseService {
   }
 
   Future addNewProductToStore(
-      String storeId, String productName, int price, String category) async {
+      String storeId, String productName, int price) async {
     await storesCollection
         .doc(storeId)
         .collection('products')
-        .add({'name': productName, 'price': price, 'category': category});
+        .add({'name': productName, 'price': price});
   }
 
   Stream<List<Product>> getProductsList(String storeId) {

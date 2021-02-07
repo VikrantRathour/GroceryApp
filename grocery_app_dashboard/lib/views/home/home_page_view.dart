@@ -16,7 +16,9 @@ class _HomePageViewState extends State<HomePageView> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
-        child: Column(
+        child: ListView(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
           children: [
             Text(
               'Your Stores:',
@@ -25,8 +27,6 @@ class _HomePageViewState extends State<HomePageView> {
             InkWell(
               onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => AddStoreView())),
-              // onTap: () => Navigator.of(context).push(
-              //     MaterialPageRoute(builder: (context) => AddStoreView())),
               child: Container(
                 padding: EdgeInsets.all(10.0),
                 color: Theme.of(context).primaryColor,

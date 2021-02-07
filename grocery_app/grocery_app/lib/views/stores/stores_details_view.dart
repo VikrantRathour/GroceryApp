@@ -5,7 +5,7 @@ import 'package:grocery_app/views/stores/products_list/products_list.dart';
 class StoreDetailView extends StatefulWidget {
   final Store store;
 
-  const StoreDetailView({Key key, this.store}) : super(key: key);
+  const StoreDetailView({this.store});
   @override
   _StoreDetailViewState createState() => _StoreDetailViewState();
 }
@@ -20,7 +20,7 @@ class _StoreDetailViewState extends State<StoreDetailView> {
         shrinkWrap: true,
         children: [
           Image(
-            image: AssetImage('assets/img.jpg'),
+            image: AssetImage('assets/${widget.store.image}'),
             width: MediaQuery.of(context).size.width,
           ),
           Container(
@@ -116,16 +116,18 @@ class _StoreDetailViewState extends State<StoreDetailView> {
               ],
             ),
           ),
-          Column(
-            children: [
-              Text(
-                'Products available:',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-              ),
-              ProductsList(
-                storeId: widget.store.storeId,
-              ),
-            ],
+          Container(
+            child: Column(
+              children: [
+                Text(
+                  'Products available:',
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                ),
+                ProductsList(
+                  store: widget.store,
+                ),
+              ],
+            ),
           ),
         ],
       ),

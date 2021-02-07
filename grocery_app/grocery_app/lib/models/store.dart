@@ -5,8 +5,16 @@ class Store {
   final String name;
   final String location;
   final int distanceFromUser;
+  final String category;
+  final String image;
 
-  Store({this.storeId, this.name, this.location, this.distanceFromUser});
+  Store(
+      {this.storeId,
+      this.name,
+      this.location,
+      this.distanceFromUser,
+      this.category,
+      this.image});
 
   factory Store.fromMap(DocumentSnapshot snapshot) {
     final data = snapshot.data();
@@ -15,6 +23,8 @@ class Store {
         storeId: snapshot.id,
         name: data['name'],
         location: data['location'],
-        distanceFromUser: data['distanceFromUser']);
+        distanceFromUser: data['distanceFromUser'],
+        category: data['category'],
+        image: data['image'] ?? 'img.jpg');
   }
 }

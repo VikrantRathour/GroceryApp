@@ -14,7 +14,9 @@ class _StoreTileState extends State<StoreTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10.0),
+      width: 200.0,
+      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+      padding: EdgeInsets.all(0.0),
       decoration: BoxDecoration(
         boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10.0)],
         color: Colors.white,
@@ -35,9 +37,10 @@ class _StoreTileState extends State<StoreTile> {
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0)),
               child: Image(
-                image: AssetImage('assets/img.jpg'),
-                fit: BoxFit.cover,
+                image: AssetImage('assets/${widget.store.image}'),
+                fit: BoxFit.fitWidth,
                 height: 150.0,
+                // width: 200.0,
               ),
             ),
             Container(
@@ -56,6 +59,9 @@ class _StoreTileState extends State<StoreTile> {
                             color: Theme.of(context).accentColor,
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold),
+                        overflow: TextOverflow.fade,
+                        maxLines: 2,
+                        softWrap: true,
                       ),
                     ],
                   )
@@ -71,16 +77,9 @@ class _StoreTileState extends State<StoreTile> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Location: ${widget.store.location}',
+                          '${widget.store.distanceFromUser} Km(s)',
                           style: TextStyle(fontSize: 15.0, color: Colors.grey),
                         ),
-                        SizedBox(
-                          height: 3.0,
-                        ),
-                        Text(
-                          'Distance from user: ${widget.store.distanceFromUser.toString()}',
-                          style: TextStyle(fontSize: 16.0, color: Colors.grey),
-                        )
                       ],
                     ),
                     Column(
@@ -90,18 +89,14 @@ class _StoreTileState extends State<StoreTile> {
                             Icon(
                               Icons.star_rounded,
                               color: Color(0xFFFFD11A),
-                              size: 25.0,
+                              size: 20.0,
                             ),
                             Text(
                               '4.9',
                               style: TextStyle(
-                                  color: Color(0xFFFFD11A), fontSize: 25.0),
+                                  color: Color(0xFFFFD11A), fontSize: 20.0),
                             )
                           ],
-                        ),
-                        Text(
-                          '250 reviews',
-                          style: TextStyle(color: Colors.grey, fontSize: 12.0),
                         )
                       ],
                     )

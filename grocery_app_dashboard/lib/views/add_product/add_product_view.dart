@@ -17,17 +17,8 @@ class _AddProductViewState extends State<AddProductView> {
 
   String name;
   int price;
-  String category = 'Fruits and Vegetables';
   @override
   Widget build(BuildContext context) {
-    void _showAddCategoryPanel() {
-      showModalBottomSheet(
-          context: context,
-          builder: (context) {
-            return AddCategoryBottomSheet();
-          });
-    }
-
     return Form(
       key: _formKey,
       child: Scaffold(
@@ -59,59 +50,6 @@ class _AddProductViewState extends State<AddProductView> {
               decoration: InputDecoration(hintText: 'Price'),
               keyboardType: TextInputType.number,
             ),
-            SizedBox(
-              height: 15.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Container(
-                    child: StreamBuilder<List<Category>>(
-                      stream: DatabaseService().getCategoriesList(),
-                      builder: (context, snapshot) {
-                        if (!snapshot.hasData) {
-                          return Text('Loading');
-                        } else {
-                          List<DropdownMenuItem> categoryItems = [];
-                          for (Category cat in snapshot.data) {
-                            categoryItems.add(DropdownMenuItem(
-                              child: Text('${cat.name}'),
-                              value: cat.name,
-                            ));
-                          }
-                          return DropdownButtonFormField(
-                              items: categoryItems,
-                              value: 'Fruits and Vegetables',
-                              onChanged: (val) {
-                                setState(() => category = val);
-                              });
-                        }
-                      },
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
-                InkWell(
-                  onTap: () {
-                    _showAddCategoryPanel();
-                  },
-                  child: Container(
-                    color: Theme.of(context).primaryColor,
-                    padding: EdgeInsets.all(15.0),
-                    child: Center(
-                      child: Text(
-                        'New Category',
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            )
           ],
         ),
         bottomNavigationBar: BottomAppBar(
@@ -119,8 +57,8 @@ class _AddProductViewState extends State<AddProductView> {
           child: InkWell(
             onTap: () {
               if (_formKey.currentState.validate()) {
-                DatabaseService().addNewProductToStore(
-                    widget.storeId, name, price, category);
+                DatabaseService()
+                    .addNewProductToStore(widget.storeId, name, price);
                 Navigator.of(context).pop();
               }
             },

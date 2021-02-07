@@ -128,7 +128,10 @@ class _StoreDetailAfterSearchState extends State<StoreDetailAfterSearch> {
               color: Theme.of(context).primaryColor,
               child: Text(
                 'See Products available',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
               ),
             ),
           ),

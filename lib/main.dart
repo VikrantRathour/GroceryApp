@@ -9,8 +9,6 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'shared/loading.dart';
 
-// import 'views/homePageView.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

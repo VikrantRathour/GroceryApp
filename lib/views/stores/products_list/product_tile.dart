@@ -35,7 +35,7 @@ class _ProductTileState extends State<ProductTile> {
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0)),
               child: Image(
-                image: AssetImage('assets/${widget.product.image}'),
+                image: NetworkImage('${widget.product.image}'),
                 fit: BoxFit.fitHeight,
                 height: 150.0,
               ),

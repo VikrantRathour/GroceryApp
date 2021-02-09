@@ -20,7 +20,11 @@ class _ProductsListOfStoreAfterSearchState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Products Available'),
+        title: Text(
+          'Products Available',
+          style: TextStyle(color: Colors.white),
+        ),
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: StreamBuilder<List<Product>>(
         stream: DatabaseService().getProductsList(widget.store.storeId),

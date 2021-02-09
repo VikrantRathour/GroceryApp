@@ -54,10 +54,18 @@ class DatabaseService {
         .map((list) => list.docs.map((doc) => Store.fromMap(doc)).toList());
   }
 
-  Stream<List<Store>> getStoresByCategory(String category, String location) {
+  Stream<List<Store>> getStoresByCategoryAndLocation(
+      String category, String location) {
     return storesCollection
         .where('category', isEqualTo: category)
         .where('location', isEqualTo: location)
+        .snapshots()
+        .map((list) => list.docs.map((doc) => Store.fromMap(doc)).toList());
+  }
+
+  Stream<List<Store>> getStoresByCategory(String category) {
+    return storesCollection
+        .where('category', isEqualTo: category)
         .snapshots()
         .map((list) => list.docs.map((doc) => Store.fromMap(doc)).toList());
   }

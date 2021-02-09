@@ -37,7 +37,7 @@ class _StoreTileState extends State<StoreTile> {
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0)),
               child: Image(
-                image: AssetImage('assets/${widget.store.image}'),
+                image: NetworkImage('${widget.store.image}'),
                 fit: BoxFit.fitWidth,
                 height: 150.0,
                 // width: 200.0,
@@ -77,7 +77,7 @@ class _StoreTileState extends State<StoreTile> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '${widget.store.distanceFromUser} Km(s)',
+                          '${widget.store.category}',
                           style: TextStyle(fontSize: 15.0, color: Colors.grey),
                         ),
                       ],

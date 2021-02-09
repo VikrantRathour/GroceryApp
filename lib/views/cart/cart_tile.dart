@@ -33,7 +33,7 @@ class _CartTileState extends State<CartTile> {
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0)),
               child: Image(
-                image: AssetImage('assets/${widget.cartItem.image}'),
+                image: NetworkImage('${widget.cartItem.image}'),
                 fit: BoxFit.fitHeight,
                 height: 150.0,
               ),

@@ -20,8 +20,9 @@ class _StoreDetailViewState extends State<StoreDetailView> {
         shrinkWrap: true,
         children: [
           Image(
-            image: AssetImage('assets/${widget.store.image}'),
+            image: NetworkImage('${widget.store.image}'),
             width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 1 / 3,
           ),
           Container(
             padding: EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
@@ -50,21 +51,9 @@ class _StoreDetailViewState extends State<StoreDetailView> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Location: ${widget.store.location}',
-                        style: TextStyle(fontSize: 15.0, color: Colors.grey),
-                      ),
-                      SizedBox(
-                        height: 3.0,
-                      ),
-                      Text(
-                        'Distance from user: ${widget.store.distanceFromUser}',
-                        style: TextStyle(fontSize: 16.0, color: Colors.grey),
-                      )
-                    ],
+                  Text(
+                    'Location: ${widget.store.location}',
+                    style: TextStyle(fontSize: 15.0, color: Colors.grey),
                   ),
                   Column(
                     children: [

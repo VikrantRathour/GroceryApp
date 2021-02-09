@@ -29,7 +29,7 @@ class _OrderTileState extends State<OrderTile> {
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0)),
               child: Image(
-                image: AssetImage('assets/${widget.orderedItem.image}'),
+                image: NetworkImage('${widget.orderedItem.image}'),
                 fit: BoxFit.fitHeight,
                 height: 150.0,
               ),
@@ -109,11 +109,11 @@ class _OrderTileState extends State<OrderTile> {
                 ),
                 child: Center(
                   child: Text(
-                    'Order Now',
+                    'Your product will be delivered soon...',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
-                        fontSize: 20.0),
+                        fontSize: 18.0),
                   ),
                 ),
                 height: 50.0,

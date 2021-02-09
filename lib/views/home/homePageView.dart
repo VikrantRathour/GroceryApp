@@ -7,10 +7,10 @@ import 'package:grocery_app/services/auth.dart';
 import 'package:grocery_app/services/database.dart';
 import 'package:grocery_app/views/after_search/store_detail_after_search.dart';
 import 'package:grocery_app/views/cart/cart_view.dart';
-// import 'package:grocery_app/views/categories/categories_list_view.dart';
+import 'package:grocery_app/views/categories/categories_list_view.dart';
 import 'package:grocery_app/views/home/cateories_list/categories_list.dart';
 import 'package:grocery_app/views/home/stores_list/stores_list.dart';
-// import 'package:grocery_app/views/my_account/my_account_view.dart';
+import 'package:grocery_app/views/my_account/my_account_view.dart';
 import 'package:grocery_app/views/orders/orders_view.dart';
 import 'package:provider/provider.dart';
 
@@ -149,10 +149,10 @@ class _HomePageViewState extends State<HomePageView> {
               title: Text('My Account'),
               onTap: () {
                 Navigator.pop(context);
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => MyAccountView(
-                //           currentLocation: currentLocation,
-                //         )));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MyAccountView(
+                          currentLocation: currentLocation,
+                        )));
               },
             ),
             ListTile(
@@ -175,10 +175,10 @@ class _HomePageViewState extends State<HomePageView> {
               title: Text('All Categories'),
               onTap: () {
                 Navigator.pop(context);
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => CategoriesListView(
-                //           currentLocation: currentLocation,
-                //         )));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => CategoriesListView(
+                          currentLocation: currentLocation,
+                        )));
               },
             ),
             ListTile(

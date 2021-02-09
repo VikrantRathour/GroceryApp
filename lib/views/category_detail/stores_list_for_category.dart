@@ -22,10 +22,11 @@ class _StoresListForCategoryState extends State<StoresListForCategory> {
           '${widget.category}',
           style: TextStyle(color: Colors.white),
         ),
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: StreamBuilder<List<Store>>(
-        stream: DatabaseService()
-            .getStoresByCategory(widget.category, widget.currentLocation),
+        stream: DatabaseService().getStoresByCategoryAndLocation(
+            widget.category, widget.currentLocation),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Loading();

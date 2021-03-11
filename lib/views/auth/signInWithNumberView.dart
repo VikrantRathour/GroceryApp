@@ -77,6 +77,7 @@ class _SignInWithNumberViewState extends State<SignInWithNumberView> {
                 ),
               ])
             : Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -137,6 +138,9 @@ class _SignInWithNumberViewState extends State<SignInWithNumberView> {
                       ],
                     ),
                   ),
+                  SizedBox(
+                    height: 100.0,
+                  )
                 ],
               ),
       ),

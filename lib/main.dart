@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_app/views/home/homePageView.dart';
+import 'package:grocery_app/views/orders/order_summary.dart';
 import 'package:grocery_app/views/wrapper.dart';
 import 'package:provider/provider.dart';
 import 'package:grocery_app/services/auth.dart';
@@ -43,7 +44,6 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                 primaryColor: Color(0xFF29C17E),
                 accentColor: Color(0xFF1C8244),
-                // canvasColor: Color(0xFF29C17E)
               ),
             ),
           );
@@ -58,8 +58,6 @@ class MyApp extends StatelessWidget {
                 accentColor: Color(0xFF1C8244)),
           ),
         );
-        // if (snapshot.connectionState == ConnectionState.waiting) {
-        // } else {}
       },
     );
   }

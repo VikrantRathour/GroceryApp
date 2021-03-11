@@ -44,6 +44,7 @@ class _VerifyNumberState extends State<VerifyNumber> {
               child: Container(
                 padding: EdgeInsets.only(left: 20.0, top: 25.0, right: 20.0),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -115,6 +116,9 @@ class _VerifyNumberState extends State<VerifyNumber> {
                         ],
                       ),
                     ),
+                    SizedBox(
+                      height: 100.0,
+                    )
                   ],
                 ),
               ),

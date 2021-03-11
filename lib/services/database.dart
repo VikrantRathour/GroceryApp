@@ -29,10 +29,14 @@ class DatabaseService {
     });
   }
 
-  Future updateUserData(String name, String location) async {
+  Future updateUserData(String name, String location, String address) async {
     return await usersCollection
         .doc(uid)
-        .set({'name': name, 'location': location});
+        .set({'name': name, 'location': location, 'address': address});
+  }
+
+  Future updateUserAddress(String address) async {
+    return await usersCollection.doc(uid).update({'address': address});
   }
 
   Stream<UserData> get userData {
@@ -115,8 +119,14 @@ class DatabaseService {
   }
 
   Stream<List<OrderedItem>> getUserOrders() {
-    return usersCollection.doc(uid).collection('orders').snapshots().map(
-        (list) => list.docs.map((doc) => OrderedItem.fromMap(doc)).toList());
+    return usersCollection
+        .doc(uid)
+        .collection('orders')
+        .orderBy('createdOn', descending: true)
+        .where('createdOn', isGreaterThan: DateTime.now())
+        .snapshots()
+        .map((list) =>
+            list.docs.map((doc) => OrderedItem.fromMap(doc)).toList());
   }
 
   Stream<List<Location>> getLocations() {
@@ -147,7 +157,7 @@ class DatabaseService {
       'storeId': store.storeId,
       'storeName': store.name,
       'image': productImage,
-      'createdOn': DateTime.now()
+      'createdOn': DateTime.now().add(const Duration(minutes: 30))
     });
   }
 

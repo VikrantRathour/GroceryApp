@@ -33,12 +33,12 @@ class AuthService {
 
         if (userModel.name == '' || userModel.name == null) {
           await DatabaseService(uid: user.uid)
-              .updateUserData('Full Name', 'Location');
+              .updateUserData('Full Name', 'Location', 'Address');
         }
       } catch (ex) {
         print('error: ${ex.toString()}');
         await DatabaseService(uid: user.uid)
-            .updateUserData('Full Name', 'Location');
+            .updateUserData('Full Name', 'Location', 'Address');
       }
 
       return _userFromFirebaseUser(user);

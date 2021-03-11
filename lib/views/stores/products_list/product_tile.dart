@@ -3,6 +3,7 @@ import 'package:grocery_app/models/product.dart';
 import 'package:grocery_app/models/store.dart';
 import 'package:grocery_app/models/user.dart';
 import 'package:grocery_app/services/database.dart';
+import 'package:grocery_app/views/orders/order_summary.dart';
 import 'package:provider/provider.dart';
 
 class ProductTile extends StatefulWidget {
@@ -113,13 +114,11 @@ class _ProductTileState extends State<ProductTile> {
                 Expanded(
                   child: InkWell(
                     onTap: () {
-                      DatabaseService(uid: user.uid).orderItem(
-                          widget.product.uid,
-                          widget.product.name,
-                          widget.product.price,
-                          widget.product.image,
-                          widget.store);
-                      Navigator.pop(context);
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => OrderSummary(
+                                product: widget.product,
+                                store: widget.store,
+                              )));
                     },
                     child: Container(
                       decoration: BoxDecoration(

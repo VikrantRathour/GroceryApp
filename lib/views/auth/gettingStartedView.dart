@@ -36,7 +36,7 @@ class _GettingStartedViewState extends State<GettingStartedView> {
             ),
             Center(
               child: Text(
-                'Vision',
+                'Vendor\'s Next Door',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 30.0,

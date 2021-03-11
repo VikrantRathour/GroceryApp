@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "595160755160",
-    "firebase_url": "https://ar-project-b26b4.firebaseio.com",
-    "project_id": "ar-project-b26b4",
-    "storage_bucket": "ar-project-b26b4.appspot.com"
+    "project_number": "565695222903",
+    "project_id": "grocery-next-door",
+    "storage_bucket": "grocery-next-door.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:595160755160:android:c6cedfc3f7ae406ef0a0ad",
+        "mobilesdk_app_id": "1:565695222903:android:c7f8b525d56b036d732272",
         "android_client_info": {
           "package_name": "com.comet.grocery_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "595160755160-1i3j2kn8f5bgt6qs0c3v91e38nql2l4q.apps.googleusercontent.com",
+          "client_id": "565695222903-bbnhgas2embslc2e6ujkjsu55v5543lg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCPVBmXndoqkYY1yJNBqpRt7tQwGWYU5Uo"
+          "current_key": "AIzaSyDIbHB2-7l6DUE6RZ9VohTyf7_UETGmYgY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "595160755160-1i3j2kn8f5bgt6qs0c3v91e38nql2l4q.apps.googleusercontent.com",
+              "client_id": "565695222903-bbnhgas2embslc2e6ujkjsu55v5543lg.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

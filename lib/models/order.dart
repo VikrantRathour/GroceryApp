@@ -8,6 +8,7 @@ class OrderedItem {
   final String storeId;
   final String storeName;
   final String image;
+  final int time;
 
   OrderedItem(
       {this.uid,
@@ -16,11 +17,14 @@ class OrderedItem {
       this.price,
       this.storeId,
       this.storeName,
-      this.image});
+      this.image,
+      this.time});
 
   factory OrderedItem.fromMap(DocumentSnapshot snapshot) {
     final data = snapshot.data();
 
+    var timeDiff =
+        data['createdOn'].toDate().difference(DateTime.now()).inMinutes;
     return OrderedItem(
         uid: snapshot.id,
         productId: data['productId'],
@@ -28,6 +32,7 @@ class OrderedItem {
         price: data['price'],
         storeId: data['storeId'],
         storeName: data['storeName'],
-        image: data['image'] ?? 'img.jpg');
+        image: data['image'] ?? 'img.jpg',
+        time: timeDiff);
   }
 }

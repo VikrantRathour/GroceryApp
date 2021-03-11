@@ -109,10 +109,10 @@ class _HomePageViewState extends State<HomePageView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Grocery App',
+                          'Vender\'s Next Door',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 20.0,
+                            fontSize: 16.0,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -149,10 +149,8 @@ class _HomePageViewState extends State<HomePageView> {
               title: Text('My Account'),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => MyAccountView(
-                          currentLocation: currentLocation,
-                        )));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => MyAccountView()));
               },
             ),
             ListTile(

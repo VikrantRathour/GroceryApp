@@ -29,6 +29,14 @@ class _CartViewState extends State<CartView> {
           if (!snapshot.hasData) {
             return Loading();
           } else {
+            if (snapshot.data.isEmpty) {
+              return Center(
+                child: Text(
+                  'Cart is Empty',
+                  style: TextStyle(fontSize: 30.0, color: Colors.grey),
+                ),
+              );
+            }
             return ListView.builder(
               itemBuilder: (context, index) {
                 return CartTile(

@@ -109,7 +109,9 @@ class _OrderTileState extends State<OrderTile> {
                 ),
                 child: Center(
                   child: Text(
-                    'Your product will be delivered soon...',
+                    widget.orderedItem.time - 2 > 0
+                        ? 'Your order will be delivered in ${widget.orderedItem.time - 2} mins'
+                        : 'Order has been delivered',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,

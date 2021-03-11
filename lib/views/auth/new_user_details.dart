@@ -122,7 +122,7 @@ class _NewUserDetailsState extends State<NewUserDetails> {
                       onTap: () {
                         if (_formKey.currentState.validate()) {
                           DatabaseService(uid: user.uid)
-                              .updateUserData(name, location);
+                              .updateUserData(name, location, location);
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                   builder: (context) => HomePageView()));

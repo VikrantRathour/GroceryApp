@@ -2,17 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/models/user.dart';
 import 'package:grocery_app/services/auth.dart';
 import 'package:grocery_app/services/database.dart';
+import 'package:grocery_app/views/my_account/bottom_sheet_to_update_profile.dart';
 import 'package:grocery_app/views/orders/orders_view.dart';
 import 'package:provider/provider.dart';
 
 class MyAccountView extends StatefulWidget {
-  final String currentLocation;
-  MyAccountView({this.currentLocation});
   @override
   _MyAccountViewState createState() => _MyAccountViewState();
 }
 
 class _MyAccountViewState extends State<MyAccountView> {
+  void _showUpdateAddress() {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return BottomSheetToUpdateProfile();
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<CustomUserModel>(context);
@@ -59,19 +66,26 @@ class _MyAccountViewState extends State<MyAccountView> {
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 18.0),
                               ),
-                              Container(
-                                padding: EdgeInsets.only(
-                                    top: 3.0,
-                                    bottom: 3.0,
-                                    left: 8.0,
-                                    right: 8.0),
-                                decoration: BoxDecoration(
-                                    color: Color(0x66FFFFFFF),
-                                    borderRadius: BorderRadius.circular(10.0)),
-                                child: Text(
-                                  widget.currentLocation ??
-                                      'Loading location...',
-                                  style: TextStyle(color: Colors.white),
+                              InkWell(
+                                onTap: () {
+                                  _showUpdateAddress();
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.only(
+                                      top: 3.0,
+                                      bottom: 3.0,
+                                      left: 8.0,
+                                      right: 8.0),
+                                  decoration: BoxDecoration(
+                                      color: Color(0x66FFFFFFF),
+                                      borderRadius:
+                                          BorderRadius.circular(10.0)),
+                                  child: Text(
+                                    snapshot.hasData
+                                        ? snapshot.data.address
+                                        : 'No Address',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
                                 ),
                               )
                             ],

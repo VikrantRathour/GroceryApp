@@ -29,6 +29,14 @@ class _OrdersViewState extends State<OrdersView> {
           if (!snapshot.hasData) {
             return Loading();
           } else {
+            if (snapshot.data.isEmpty) {
+              return Center(
+                child: Text(
+                  'No Active Orders',
+                  style: TextStyle(fontSize: 30.0, color: Colors.grey),
+                ),
+              );
+            }
             return ListView.builder(
               itemBuilder: (context, index) {
                 return OrderTile(
